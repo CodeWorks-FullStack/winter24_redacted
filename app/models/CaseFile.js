@@ -43,7 +43,7 @@ export class CaseFile {
         </div>
         <div class="d-flex justify-content-between mb-4 align-items-center">
           <h3 class="mb-0">Last Accessed ${this.LastAccessedDate} at ${this.LastAccessedTime}</h3>
-          <button>Unlock Case</button>
+          <button onclick="app.CaseFilesController.unlockCaseFile()">Unlock Case</button>
         </div>
         <p class="fs-5">
           ${this.body}
@@ -73,4 +73,5 @@ export class CaseFile {
     // else
     return ''
   }
+
 }

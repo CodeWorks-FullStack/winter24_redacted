@@ -33,4 +33,8 @@ export class CaseFilesController {
     caseFilesService.setActiveCaseFile(caseFileId)
   }
 
+  unlockCaseFile() {
+    caseFilesService.unlockCaseFile()
+  }
+
 }
