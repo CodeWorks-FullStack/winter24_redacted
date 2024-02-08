@@ -4,6 +4,7 @@ export class CaseFile {
   constructor (data) {
     this.id = generateId()
     this.title = data.title
+    // NOTE data.agency is undefined, it will set this.agency to 'Park Ranger'
     this.agency = data.agency || 'Park Ranger'
     // if (data.body == undefined) {
     //   this.body = 'no body here'
@@ -14,7 +15,9 @@ export class CaseFile {
     // NOTE default to right side of pipes (||) if data.body is falsy (undefined)
     this.body = data.body || ''
     this.imgUrl = data.imgUrl
+    // NOTE check to see if the object has a lastAccessed property, so that we can convert that datestring to a date object. If it doesn't, we create a new Date using the cureent date and time
     this.lastAccessed = data.lastAccessed ? new Date(data.lastAccessed) : new Date()
+    // NOTE start out locked
     this.isLocked = true
   }
 
@@ -83,6 +86,7 @@ export class CaseFile {
     }
 
     // else
+    // NOTE onblur will run the provided function when the textarea is no longer focussed (clicked out of)
     return `
       <textarea onblur="app.CaseFilesController.updateCaseFile()" name="body" id="caseFileTextArea" rows="12" class="w-100">${this.body}</textarea>
     `

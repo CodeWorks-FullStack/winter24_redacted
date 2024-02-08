@@ -15,6 +15,7 @@ class CaseFilesService {
 
 
   constructor () {
+    // NOTE if you load from localstorage in the service's constructor, it will only load once
     _loadCaseFiles()
   }
 
@@ -42,16 +43,22 @@ class CaseFilesService {
   updateCaseFile(updatedCaseFileBody) {
     const activeCaseFile = AppState.activeCaseFile
 
+    // NOTE updates body
     activeCaseFile.body = updatedCaseFileBody
+    // NOTE updates timestamp
     activeCaseFile.lastAccessed = new Date()
+    // NOTE lock case again
     activeCaseFile.isLocked = true
 
+    // NOTE if we changed values on our data, make sure to update localstorage
     _saveCaseFiles()
+    // NOTE manually trigger a listener
     AppState.emit('activeCaseFile')
   }
 
   createCaseFile(caseFileFormData) {
     const newCaseFile = new CaseFile(caseFileFormData)
+
     console.log('new case file', newCaseFile);
 
     AppState.caseFiles.push(newCaseFile)

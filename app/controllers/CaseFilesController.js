@@ -25,9 +25,11 @@ function _drawActiveCaseFile() {
 
 export class CaseFilesController {
   constructor () {
+    // ANCHOR page load
     // console.log('Case Files Controller loaded');
     _drawCaseFiles()
 
+    // ANCHOR listeners
     AppState.on('caseFiles', _drawCaseFiles)
     AppState.on('activeCaseFile', _drawActiveCaseFile)
   }
@@ -50,6 +52,7 @@ export class CaseFilesController {
     // @ts-ignore
     console.log('text content from textarea', textAreaElement.value);
 
+    // NOTE pulls out the text content currently stored in the textarea tag
     // @ts-ignore
     const updatedCaseFileBody = textAreaElement.value
 
