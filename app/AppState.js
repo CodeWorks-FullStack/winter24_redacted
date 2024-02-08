@@ -20,6 +20,11 @@ class ObservableAppState extends EventEmitter {
       agency: 'Coast Guard',
       imgUrl: 'https://c.files.bbci.co.uk/4B11/production/_107971291_nessie.jpg'
     }),
+    new CaseFile({
+      title: 'Flatwoods Monster',
+      agency: 'Men In Black',
+      imgUrl: 'https://www.wvencyclopedia.org/assets/0001/9404/flatwoodsmonster_large.jpg?1315591760'
+    }),
   ]
 
 
