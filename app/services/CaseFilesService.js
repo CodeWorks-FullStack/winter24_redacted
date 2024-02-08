@@ -16,7 +16,11 @@ class CaseFilesService {
     const caseFile = AppState.activeCaseFile
     // TODO flip bool
     caseFile.isLocked = false
-    console.log('case file bool', caseFile.isLocked);
+    console.log('case file', caseFile);
+
+    // AppState.activeCaseFile = AppState.activeCaseFile
+    // NOTE manually trigger a listener
+    AppState.emit('activeCaseFile')
   }
 
 }

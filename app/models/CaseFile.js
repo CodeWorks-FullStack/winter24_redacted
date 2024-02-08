@@ -12,7 +12,7 @@ export class CaseFile {
     //   this.body = data.body
     // }
     // NOTE default to right side of pipes (||) if data.body is falsy (undefined)
-    this.body = data.body || 'no body'
+    this.body = data.body || ''
     this.imgUrl = data.imgUrl
     this.lastAccessed = new Date()
     this.isLocked = true
@@ -45,9 +45,7 @@ export class CaseFile {
           <h3 class="mb-0">Last Accessed ${this.LastAccessedDate} at ${this.LastAccessedTime}</h3>
           <button onclick="app.CaseFilesController.unlockCaseFile()">Unlock Case</button>
         </div>
-        <p class="fs-5">
-          ${this.body}
-        </p>
+        ${this.ReportBody}
       </div>
     </div>
     `
@@ -63,7 +61,7 @@ export class CaseFile {
 
   get ImgUrlLink() {
     // NOTE checking to see if imgUrl is undefined on the class
-    if (!this.imgUrl) {
+    if (!this.imgUrl) { //this.imgUrl == undefined
       return ''
     }
 
@@ -73,6 +71,20 @@ export class CaseFile {
       <i class="mdi mdi-camera fs-2"></i>
     </a>
     `
+  }
+
+  get ReportBody() {
+    if (this.isLocked) {
+      return `
+      <p class="fs-5">
+        ${this.body}
+      </p>
+      `
+    }
+
+    // else
+
+    return 'case unlocked'
   }
 
 }
