@@ -15,7 +15,7 @@ export class CaseFile {
 
   get ListHTMLTemplate() {
     return `
-    <p onclick="app.CaseFilesController.setActiveCaseFile()" class="fs-2 selectable px-5 d-flex justify-content-between" role="button">
+    <p onclick="app.CaseFilesController.setActiveCaseFile('${this.id}')" class="fs-2 selectable px-5 d-flex justify-content-between" role="button">
       <span>
         <b>${this.title}</b>
         <span class="mx-3">-</span>
@@ -36,7 +36,7 @@ export class CaseFile {
             <i class="mdi mdi-camera fs-2"></i>
           </a>
         </div>
-        <div class="d-flex justify-content-between mb-4 align-items-centerr\">
+        <div class="d-flex justify-content-between mb-4 align-items-center">
           <h3 class="mb-0">Last Accessed 12/12/2012 at 11:54 AM</h3>
           <button>Unlock Case</button>
         </div>
