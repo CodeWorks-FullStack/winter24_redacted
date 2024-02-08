@@ -1,6 +1,21 @@
 import { AppState } from "../AppState.js"
+import { CaseFile } from "../models/CaseFile.js"
+import { loadState, saveState } from "../utils/Store.js"
+
+function _saveCaseFiles() {
+  saveState('caseFiles', AppState.caseFiles)
+}
+
+function _loadCaseFiles() {
+  const caseFilesFromLocalStorage = loadState('caseFiles', [CaseFile])
+  AppState.caseFiles = caseFilesFromLocalStorage
+}
 
 class CaseFilesService {
+
+  constructor () {
+    _loadCaseFiles()
+  }
 
   setActiveCaseFile(caseFileId) {
     const foundCase = AppState.caseFiles.find(caseFile => caseFile.id == caseFileId)
@@ -30,6 +45,7 @@ class CaseFilesService {
     activeCaseFile.lastAccessed = new Date()
     activeCaseFile.isLocked = true
 
+    _saveCaseFiles()
     AppState.emit('activeCaseFile')
   }
 

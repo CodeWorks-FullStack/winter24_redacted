@@ -22,7 +22,7 @@ export function saveState(key, value) {
 export function loadState(key, instanceType) {
   try {
     const keyName = `${APP_NAME}_${key}`
-    if(!instanceType){
+    if (!instanceType) {
       return window.localStorage.getItem(keyName)
     }
     const keyType = Array.isArray(instanceType) ? '[]' : '{}'
@@ -37,7 +37,7 @@ export function loadState(key, instanceType) {
     if (keyType == '{}' && !Object.keys(data).length) { return null }
     return data
   } catch (error) {
-    console.error('[ATTEMPTING_TO_LOAD_STATE]', error,  { key, instanceType })
+    console.error('[ATTEMPTING_TO_LOAD_STATE]', error, { key, instanceType })
     Pop.error(error)
   }
 }
