@@ -18,4 +18,5 @@ export class CaseFilesController {
     console.log('Case Files Controller loaded');
     _drawCaseFiles()
   }
+
 }
