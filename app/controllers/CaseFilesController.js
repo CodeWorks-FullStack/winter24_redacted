@@ -17,6 +17,8 @@ function _drawCaseFiles() {
 function _drawActiveCaseFile() {
   const caseFile = AppState.activeCaseFile
   console.log('drawing active case file', caseFile);
+
+  setHTML('caseFileDetails', caseFile.ActiveDetailsHTMLTemplate)
 }
 
 export class CaseFilesController {

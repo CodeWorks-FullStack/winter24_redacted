@@ -31,7 +31,7 @@ export class CaseFile {
     <div class="col-12">
       <div class="p-5">
         <div class="d-flex">
-          <h2 class="me-4">Nessie</h2>
+          <h2 class="me-4">${this.title}</h2>
           <a href="https://fonts.google.com/specimen/IBM+Plex+Sans" target="_blank">
             <i class="mdi mdi-camera fs-2"></i>
           </a>
