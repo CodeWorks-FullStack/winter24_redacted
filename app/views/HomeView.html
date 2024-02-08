@@ -32,17 +32,6 @@
     </div>
   </section>
 
-  <section class="row">
-    <div id="caseFilesList" class="col-12">
-      <!-- STUB case file list template -->
-      <!-- <p class="fs-2 d-flex justify-content-around selectable px-5" role="button">
-        <span>Nessie</span>
-        <span>Coast Guard</span>
-        <span>12/12/2020</span>
-      </p> -->
-    </div>
-  </section>
-
   <section id="caseFileDetails" class="row">
     <!-- STUB active case template -->
     <!-- <div class="col-12">
@@ -67,4 +56,14 @@
 
     </div> -->
   </section>
+</div>
+
+<div class="offcanvas offcanvas-bottom" tabindex="-1" id="caseFilesOffcanvas" aria-labelledby="offcanvasBottomLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasBottomLabel">Case Files</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div id="caseFilesList" class="offcanvas-body small">
+
+  </div>
 </div>

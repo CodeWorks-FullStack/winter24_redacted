@@ -14,7 +14,7 @@ export class CaseFile {
     // NOTE default to right side of pipes (||) if data.body is falsy (undefined)
     this.body = data.body || ''
     this.imgUrl = data.imgUrl
-    this.lastAccessed = new Date()
+    this.lastAccessed = data.lastAccessed ? new Date(data.lastAccessed) : new Date()
     this.isLocked = true
   }
 
@@ -22,7 +22,7 @@ export class CaseFile {
 
   get ListHTMLTemplate() {
     return `
-    <p onclick="app.CaseFilesController.setActiveCaseFile('${this.id}')" class="fs-2 selectable px-5 d-flex justify-content-between" role="button">
+    <p onclick="app.CaseFilesController.setActiveCaseFile('${this.id}')" class="fs-2 selectable px-5 d-flex justify-content-between" role="button" data-bs-dismiss="offcanvas">
       <span>
         <b>${this.title}</b>
         <span class="mx-3">-</span>
