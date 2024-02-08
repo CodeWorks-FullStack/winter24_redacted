@@ -24,7 +24,12 @@ class CaseFilesService {
   }
 
   updateCaseFile(updatedCaseFileBody) {
+    const activeCaseFile = AppState.activeCaseFile
 
+    activeCaseFile.body = updatedCaseFileBody
+    activeCaseFile.isLocked = true
+
+    AppState.emit('activeCaseFile')
   }
 
 
