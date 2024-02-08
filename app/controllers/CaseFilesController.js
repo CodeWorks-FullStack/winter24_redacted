@@ -67,6 +67,8 @@ export class CaseFilesController {
 
       console.log(caseFileFormData);
 
+      caseFilesService.createCaseFile(caseFileFormData)
+
     } catch (error) {
       console.error(error);
       Pop.error(error)

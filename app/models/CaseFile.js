@@ -4,7 +4,7 @@ export class CaseFile {
   constructor (data) {
     this.id = generateId()
     this.title = data.title
-    this.agency = data.agency
+    this.agency = data.agency || 'Park Ranger'
     // if (data.body == undefined) {
     //   this.body = 'no body here'
     // }

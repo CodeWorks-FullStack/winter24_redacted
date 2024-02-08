@@ -13,6 +13,7 @@ function _loadCaseFiles() {
 
 class CaseFilesService {
 
+
   constructor () {
     _loadCaseFiles()
   }
@@ -49,6 +50,12 @@ class CaseFilesService {
     AppState.emit('activeCaseFile')
   }
 
+  createCaseFile(caseFileFormData) {
+    const newCaseFile = new CaseFile(caseFileFormData)
+    console.log('new case file', newCaseFile);
+
+
+  }
 
 }
 
