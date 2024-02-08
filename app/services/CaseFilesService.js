@@ -27,6 +27,7 @@ class CaseFilesService {
     const activeCaseFile = AppState.activeCaseFile
 
     activeCaseFile.body = updatedCaseFileBody
+    activeCaseFile.lastAccessed = new Date()
     activeCaseFile.isLocked = true
 
     AppState.emit('activeCaseFile')
