@@ -62,16 +62,17 @@ export class CaseFile {
   }
 
   get ImgUrlLink() {
-    if (this.imgUrl) {
-      return `
-      <a href="${this.imgUrl}" target="_blank">
-        <i class="mdi mdi-camera fs-2"></i>
-      </a>
-      `
+    // NOTE checking to see if imgUrl is undefined on the class
+    if (!this.imgUrl) {
+      return ''
     }
 
     // else
-    return ''
+    return `
+    <a href="${this.imgUrl}" target="_blank">
+      <i class="mdi mdi-camera fs-2"></i>
+    </a>
+    `
   }
 
 }
