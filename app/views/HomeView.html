@@ -1,4 +1,37 @@
 <div class="container">
+
+  <section class="row">
+    <div class="col-12">
+      <form onsubmit="app.CaseFilesController.createReport()">
+
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control" id="title" placeholder="Title of Report" required minlength="2"
+            maxlength="30" name="title">
+          <label for="title">Title of Report</label>
+        </div>
+
+        <div class="form-floating mb-3">
+          <input type="url" class="form-control" id="imgUrl" placeholder="Image URL" maxlength="1000" name="imgUrl">
+          <label for="imgUrl">Image URL</label>
+        </div>
+
+        <div class="form-floating mb-3">
+          <select class="form-select" id="agency" aria-label="Floating label select example" name="agency">
+            <option selected>Select your agency</option>
+            <option value="1">MIB</option>
+            <option value="2">Coast Guard</option>
+            <option value="3">Park Ranger</option>
+          </select>
+          <label for="agency">Agency</label>
+        </div>
+
+        <div class="text-end">
+          <button class="btn btn-dark" type="submit">Create Report</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
   <section class="row">
     <div id="caseFilesList" class="col-12">
       <!-- STUB case file list template -->

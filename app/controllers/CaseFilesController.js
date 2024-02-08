@@ -1,5 +1,7 @@
 import { AppState } from "../AppState.js";
 import { caseFilesService } from "../services/CaseFilesService.js";
+import { getFormData } from "../utils/FormHandler.js";
+import { Pop } from "../utils/Pop.js";
 import { setHTML } from "../utils/Writer.js";
 
 function _drawCaseFiles() {
@@ -51,5 +53,23 @@ export class CaseFilesController {
 
     caseFilesService.updateCaseFile(updatedCaseFileBody)
 
+  }
+
+  createReport() {
+    try {
+      event.preventDefault()
+
+      const form = event.target
+
+      console.log(form);
+
+      const caseFileFormData = getFormData(form)
+
+      console.log(caseFileFormData);
+
+    } catch (error) {
+      console.error(error);
+      Pop.error(error)
+    }
   }
 }
