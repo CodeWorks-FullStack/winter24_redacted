@@ -83,8 +83,9 @@ export class CaseFile {
     }
 
     // else
-
-    return 'case unlocked'
+    return `
+      <textarea onblur="app.CaseFilesController.updateCaseFile()" name="body" id="caseFileTextArea" rows="12" class="w-100">${this.body}</textarea>
+    `
   }
 
 }

@@ -23,6 +23,11 @@ class CaseFilesService {
     AppState.emit('activeCaseFile')
   }
 
+  updateCaseFile(updatedCaseFileBody) {
+
+  }
+
+
 }
 
 export const caseFilesService = new CaseFilesService()

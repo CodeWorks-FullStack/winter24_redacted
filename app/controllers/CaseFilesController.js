@@ -37,4 +37,19 @@ export class CaseFilesController {
     caseFilesService.unlockCaseFile()
   }
 
+
+  updateCaseFile() {
+    console.log('blurred input');
+
+    const textAreaElement = document.getElementById('caseFileTextArea')
+
+    // @ts-ignore
+    console.log('text content from textarea', textAreaElement.value);
+
+    // @ts-ignore
+    const updatedCaseFileBody = textAreaElement.value
+
+    caseFilesService.updateCaseFile(updatedCaseFileBody)
+
+  }
 }
