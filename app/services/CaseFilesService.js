@@ -54,7 +54,9 @@ class CaseFilesService {
     const newCaseFile = new CaseFile(caseFileFormData)
     console.log('new case file', newCaseFile);
 
+    AppState.caseFiles.push(newCaseFile)
 
+    _saveCaseFiles()
   }
 
 }

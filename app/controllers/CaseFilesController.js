@@ -27,6 +27,8 @@ export class CaseFilesController {
   constructor () {
     // console.log('Case Files Controller loaded');
     _drawCaseFiles()
+
+    AppState.on('caseFiles', _drawCaseFiles)
     AppState.on('activeCaseFile', _drawActiveCaseFile)
   }
 
