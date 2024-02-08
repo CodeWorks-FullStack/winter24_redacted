@@ -39,9 +39,7 @@ export class CaseFile {
       <div class="p-5">
         <div class="d-flex">
           <h2 class="me-4">${this.title}</h2>
-          <a href="${this.imgUrl}" target="_blank">
-            <i class="mdi mdi-camera fs-2"></i>
-          </a>
+          ${this.ImgUrlLink}
         </div>
         <div class="d-flex justify-content-between mb-4 align-items-center">
           <h3 class="mb-0">Last Accessed ${this.LastAccessedDate} at ${this.LastAccessedTime}</h3>
@@ -61,5 +59,18 @@ export class CaseFile {
 
   get LastAccessedTime() {
     return this.lastAccessed.toLocaleTimeString()
+  }
+
+  get ImgUrlLink() {
+    if (this.imgUrl) {
+      return `
+      <a href="${this.imgUrl}" target="_blank">
+        <i class="mdi mdi-camera fs-2"></i>
+      </a>
+      `
+    }
+
+    // else
+    return ''
   }
 }
