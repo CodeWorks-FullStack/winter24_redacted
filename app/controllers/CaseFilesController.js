@@ -19,4 +19,8 @@ export class CaseFilesController {
     _drawCaseFiles()
   }
 
+  setActiveCaseFile() {
+    console.log('setting active case file');
+  }
+
 }

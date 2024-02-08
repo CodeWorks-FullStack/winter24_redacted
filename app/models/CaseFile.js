@@ -15,7 +15,7 @@ export class CaseFile {
 
   get ListHTMLTemplate() {
     return `
-    <p class="fs-2 selectable px-5 d-flex justify-content-between" role="button">
+    <p onclick="app.CaseFilesController.setActiveCaseFile()" class="fs-2 selectable px-5 d-flex justify-content-between" role="button">
       <span>
         <b>${this.title}</b>
         <span class="mx-3">-</span>
