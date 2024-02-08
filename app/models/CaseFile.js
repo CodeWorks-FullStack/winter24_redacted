@@ -5,7 +5,14 @@ export class CaseFile {
     this.id = generateId()
     this.title = data.title
     this.agency = data.agency
-    this.body = data.body
+    // if (data.body == undefined) {
+    //   this.body = 'no body here'
+    // }
+    // else {
+    //   this.body = data.body
+    // }
+    // NOTE default to right side of pipes (||) if data.body is falsy (undefined)
+    this.body = data.body || 'no body'
     this.imgUrl = data.imgUrl
     this.lastAccessed = new Date()
     this.isLocked = true
@@ -32,20 +39,16 @@ export class CaseFile {
       <div class="p-5">
         <div class="d-flex">
           <h2 class="me-4">${this.title}</h2>
-          <a href="https://fonts.google.com/specimen/IBM+Plex+Sans" target="_blank">
+          <a href="${this.imgUrl}" target="_blank">
             <i class="mdi mdi-camera fs-2"></i>
           </a>
         </div>
         <div class="d-flex justify-content-between mb-4 align-items-center">
-          <h3 class="mb-0">Last Accessed 12/12/2012 at 11:54 AM</h3>
+          <h3 class="mb-0">Last Accessed ${this.LastAccessedDate} at ${this.LastAccessedTime}</h3>
           <button>Unlock Case</button>
         </div>
         <p class="fs-5">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Et quos in, voluptas perspiciatis
-          omnis, dolore quia
-          distinctio ipsam excepturi ipsa consequuntur animi est nemo minima rem, voluptatum necessitatibus libero
-          quibusdam! Culpa modi quis autem ratione aut, blanditiis ipsam quibusdam quaerat ea voluptate quia, incidunt
-          earum ipsa molestias veritatis, odit adipisci.
+          ${this.body}
         </p>
       </div>
     </div>
@@ -54,5 +57,9 @@ export class CaseFile {
 
   get LastAccessedDate() {
     return this.lastAccessed.toLocaleDateString()
+  }
+
+  get LastAccessedTime() {
+    return this.lastAccessed.toLocaleTimeString()
   }
 }

@@ -16,7 +16,8 @@ class ObservableAppState extends EventEmitter {
     }),
     new CaseFile({
       title: 'Unicorn',
-      agency: 'Park Ranger'
+      agency: 'Park Ranger',
+      body: 'It was dark it might have just been a horse'
     }),
     new CaseFile({
       title: 'Nessie',
