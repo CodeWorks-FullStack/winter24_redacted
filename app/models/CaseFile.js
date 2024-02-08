@@ -15,11 +15,18 @@ export class CaseFile {
 
   get ListHTMLTemplate() {
     return `
-    <p class="fs-2 d-flex justify-content-around selectable px-5" role="button">
-      <span>Nessie</span>
-      <span>Coast Guard</span>
-      <span>12/12/2020</span>
+    <p class="fs-2 selectable px-5 d-flex justify-content-between" role="button">
+      <span>
+        <b>${this.title}</b>
+        <span class="mx-3">-</span>
+        <i>${this.agency}</i>
+      </span>
+      <span>${this.LastAccessedDate}</span>
     </p>
     `
+  }
+
+  get LastAccessedDate() {
+    return this.lastAccessed.toLocaleDateString()
   }
 }
