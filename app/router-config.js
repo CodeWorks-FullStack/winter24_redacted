@@ -7,8 +7,4 @@ export const router = new Router([
     controllers: [],
     view: 'app/views/HomeView.html'
   },
-  {
-    path: '#/about',
-    view: 'app/views/AboutView.html'
-  }
 ])
