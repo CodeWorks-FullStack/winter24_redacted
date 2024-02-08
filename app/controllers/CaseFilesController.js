@@ -3,7 +3,7 @@ import { caseFilesService } from "../services/CaseFilesService.js";
 import { setHTML } from "../utils/Writer.js";
 
 function _drawCaseFiles() {
-  console.log('drawing case files');
+  // console.log('drawing case files');
 
   const caseFiles = AppState.caseFiles
 
@@ -14,14 +14,20 @@ function _drawCaseFiles() {
   setHTML('caseFilesList', htmlString)
 }
 
+function _drawActiveCaseFile() {
+  const caseFile = AppState.activeCaseFile
+  console.log('drawing active case file', caseFile);
+}
+
 export class CaseFilesController {
   constructor () {
-    console.log('Case Files Controller loaded');
+    // console.log('Case Files Controller loaded');
     _drawCaseFiles()
+    AppState.on('activeCaseFile', _drawActiveCaseFile)
   }
 
   setActiveCaseFile(caseFileId) {
-    console.log('setting active case file, here is the id', caseFileId);
+    // console.log('setting active case file, here is the id', caseFileId);
     caseFilesService.setActiveCaseFile(caseFileId)
   }
 
